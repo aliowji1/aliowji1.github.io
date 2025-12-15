@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio - Projects</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Projects Section -->
+    <section class="page-section" id="projects">
+        <h2 class="section-title">My Projects</h2>
+        <div class="projects-grid">
+            <!-- Project 1 -->
+            <div class="project-card">
+                <img src="acticssha.png" alt="Project 1 Screenshot">
+                <div class="project-content">
+                    <h3>Project Name</h3>
+                    <p class="project-description">
+                        This project tackles the challenge of understanding and predicting Arctic Ocean dynamics in the face of rapid climate change. Using over 70 months of ICESat-2 satellite altimetry data, I developed a comprehensive machine learning framework to analyze Sea Surface Height Anomalies (SSHA) across the Arctic region. The project addresses a critical gap in Arctic oceanography: traditional physical models struggle to capture the complexity of polar ocean dynamics, particularly in regions with seasonal ice cover and rapidly changing environmental conditions.
+                    </p>
+                    <p class="project-description">
+                         I implemented multiple complementary approaches including K-means clustering for pattern identification, Random Forest for feature importance analysis, a U-Net CNN architecture for spatial prediction (achieving 16cm accuracy), and an LSTM autoencoder for temporal pattern analysis. The technical stack included Python, TensorFlow, scikit-learn, and specialized geospatial libraries for processing NASA's ATL21 dataset.
+                    </p>
+                    <p class="project-description">
+                         I was responsible for the entire pipelineâ€”from data acquisition and preprocessing through model development, training, and evaluationâ€”ultimately uncovering counterintuitive relationships between sea ice extent and surface height that challenge conventional freeze-melt cycle explanations. The findings reveal five distinct temporal patterns in Arctic SSHA dynamics and demonstrate how machine learning can provide new insights into climate change impacts in polar regions.
+                    </p>
+                    <div class="project-links">
+                        <a href="https://github.com/aliowji1/arctic-ssha-analysis" class="project-link" target="_blank">GitHub</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="project-card">
+                <img src="spg.png" alt="SPG Vascular Stiffness Project">
+                <div class="project-content">
+                    <h3>Estimating Vascular Stiffness through Speckle Plethysmography</h3>
+                    <p class="project-description">
+                        This project explores non-invasive methods for assessing cardiovascular health through wearable technology. Using speckle plethysmography waveforms from patients in the NIH Natural History Study of CADASIL, I developed analytical methods to estimate vascular stiffness without requiring specialized medical equipment. The project addresses a critical need in cardiovascular monitoring: traditional pulse wave velocity measurements are invasive and require clinical settings, limiting their use for continuous health tracking and early disease detection.
+                    </p>
+                    <p class="project-description">
+                        I implemented a comprehensive signal processing pipeline including automated heartbeat segmentation, physiologically relevant feature extraction, and statistical analysis. I engineered 95 distinct features from SPG waveforms and their derivatives, including time spans between cardiac landmarks, slope measurements at critical points, area under curve calculations, and amplitude ratios. Through linear regression analysis, I identified the diastolic-to-systolic amplitude ratio as the strongest predictor of pulse wave velocity (r = -0.673, RÂ² = 0.453). The technical stack included Python, pandas, scipy, seaborn, plotly, numpy, and Jupyter for data manipulation, visualization, and analysis.
+                    </p>
+                    <p class="project-description">
+                        I was responsible for the entire analytical pipelineâ€”from raw waveform preprocessing through feature engineering, statistical modeling, and interpretationâ€”ultimately establishing a foundation for future machine learning integration. The findings reveal that healthier, more elastic arteries show higher diastolic-to-systolic ratios, while stiffer arteries demonstrate lower ratios. This relationship holds across both healthy individuals and CADASIL patients, demonstrating how wearable SPG devices could provide accessible cardiovascular monitoring and early detection of vascular dysfunction in at-risk populations.
+                    </p>
+                    <div class="project-links">
+                        <a href="https://github.com/aliowji1/signal_processing" class="project-link" target="_blank">GitHub</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="project-card">
+                <img src="celegan.png" alt="C. elegans Protein Aggregation Research">
+                <div class="project-content">
+                    <h3>Bacterial Protein Aggregates and Host Proteostasis in C. elegans</h3>
+                    <p class="project-description">
+                        This project investigates the relationship between bacteria-derived protein aggregates (BDPAs) and neurodegenerative disease pathogenesis using C. elegans as a model organism. Working in Dr. Daniel Czyż's lab at the University of Florida, I contributed to groundbreaking research examining how bacterial proteins influence host protein folding homeostasis. The work addresses a fundamental question in neurodegenerative disease research: how do gut bacteria contribute to protein misfolding and aggregation in the host?
+                    </p>
+                    <p class="project-description">
+                        I developed and validated the Time-Off-Pick (TOP) assay, a novel phenotypic method for measuring motility impairments in C. elegans that proved more inclusive than traditional swimming and crawling assays. This technique became instrumental in assessing how bacterial colonization affects host proteostasis. Additionally, I performed quantitative analysis of protein aggregates in Pseudomonas aeruginosa and other bacterial species using the ProteoStat fluorescence assay, establishing correlations between bacterial protein aggregate levels and their effects on polyglutamine aggregation in the worm intestine.
+                    </p>
+                    <p class="project-description">
+                        The research revealed that P. aeruginosa significantly induces polyQ aggregation in C. elegans, with the extent of aggregation directly proportional to the abundance of BDPAs. This work contributed to two peer-reviewed publications demonstrating that bacterial proteomes are not inert to host proteomes, and that disruption of bacterial proteostasis can affect host protein folding and potentially contribute to neurodegenerative diseases. The findings suggest new therapeutic avenues targeting gut microbiota composition in patients with protein conformational diseases.
+                    </p>
+                    <div class="project-links">
+                        <a href="https://doi.org/10.21769/BioProtoc.4436" class="project-link" target="_blank">Bio-protocol Publication</a>
+                        <a href="https://doi.org/10.3390/ijms23094807" class="project-link" target="_blank">MDPI Publication</a>
+                    </div>
+                </div>
+            </div>
+
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>
+            <a href="about.html">About</a> | 
+            <a href="projects.html">Projects</a> | 
+            <a href="mailto:aowji101@gmail.com">Contact</a>
+        </p>
+    </footer>
