@@ -4,8 +4,144 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio - Home</title>
+    <title>Ali Owji</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        /* Home page overrides */
+        body.full-page-bg {
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        .hero-section {
+            height: 35vh;
+            min-height: 260px;
+        }
+
+        .hero-content h1 {
+            font-family: 'Lora', serif;
+            font-size: 4.5rem;
+            font-weight: 400;
+            letter-spacing: -0.01em;
+        }
+
+        .hero-content .hero-tagline {
+            font-size: 1rem;
+            color: rgba(255,255,255,0.75);
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            margin-top: 0.8rem;
+            font-weight: 300;
+        }
+
+        .social-links {
+            margin-top: 2rem;
+        }
+
+        .social-links a {
+            font-size: 28px;
+            opacity: 0.85;
+        }
+
+        .social-links a:hover {
+            opacity: 1;
+            transform: scale(1.15) translateY(-2px);
+        }
+
+        /* Bio section — replaces exploration section */
+        .bio-section {
+            min-height: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px 24px 60px;
+        }
+
+        .bio-card {
+            max-width: 620px;
+            text-align: center;
+            color: white;
+            background: rgba(0, 0, 0, 0.45);
+            backdrop-filter: blur(6px);
+            border-radius: 14px;
+            padding: 2.5rem 3rem;
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .bio-card .eyebrow {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 1.2rem;
+        }
+
+        .bio-card .bio-headline {
+            font-family: 'Lora', serif;
+            font-size: 1.7rem;
+            font-style: italic;
+            font-weight: 400;
+            line-height: 1.5;
+            margin-bottom: 0.6rem;
+
+        }
+
+        .bio-card .bio-attribution {
+            font-size: 0.82rem;
+            letter-spacing: 0.1em;
+            color: rgba(255,255,255,0.5);
+            margin-bottom: 1.8rem;
+        }
+
+        .bio-card .bio-body {
+            font-size: 0.97rem;
+            line-height: 1.75;
+            color: rgba(255,255,255,0.85);
+            margin-bottom: 1.8rem;
+        }
+
+        .bio-cta-row {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .bio-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.65rem 1.6rem;
+            border-radius: 100px;
+            font-size: 0.92rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.25s ease;
+        }
+
+        .bio-cta.primary {
+            background: rgba(255,255,255,0.95);
+            color: #3e4a36;
+        }
+
+        .bio-cta.primary:hover {
+            background: white;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+        }
+
+        .bio-cta.secondary {
+            background: rgba(255,255,255,0.12);
+            color: white;
+            border: 1px solid rgba(255,255,255,0.3);
+            backdrop-filter: blur(4px);
+        }
+
+        .bio-cta.secondary:hover {
+            background: rgba(255,255,255,0.22);
+            transform: translateY(-2px);
+        }
+    </style>
 </head>
 <body class="full-page-bg">
     <!-- Navigation Bar -->
@@ -21,6 +157,7 @@
     <section class="hero-section">
         <div class="hero-content">
             <h1>Ali Owji</h1>
+            <p class="hero-tagline">Bioinformatics &nbsp;·&nbsp; Healthcare IT &nbsp;·&nbsp; Madison, WI</p>
             <div class="social-links">
                 <a href="https://www.linkedin.com/in/ali-owji-41161923a/" target="_blank" aria-label="LinkedIn">
                     <i class="fab fa-linkedin"></i>
@@ -35,13 +172,19 @@
         </div>
     </section>
 
-    <!-- Exploration Section -->
-    <section class="exploration-section">
-        <div class="exploration-content">
-            <p class="exploration-tagline">I like to explore the unknown and pursue new opportunities</p>
-            <p class="exploration-description">
-                In a finite world, I value sustainability and strive to keep an open mind. I live a simple life, one where I work hard to achieve my goals. I value work where I can make a difference and have a strong desire to be successful.
+    <!-- Bio Section -->
+    <section class="bio-section">
+        <div class="bio-card">
+            <p class="eyebrow">Project Manager @ Epic Systems</p>
+            <p class="bio-headline">"Somewhere, something incredible is waiting to be known."</p>
+            <p class="bio-attribution">— Carl Sagan</p>
+            <p class="bio-body">
+                I'm a bioinformatician who wandered into healthcare IT and never looked back. My work sits at the intersection of scientific rigor and real-world systems, whether that's building ML models for Arctic ocean data, developing cardiovascular signal processing at the NIH, or helping hospitals ship better software.
             </p>
+            <div class="bio-cta-row">
+                <a href="projects.html" class="bio-cta primary">See my work</a>
+                <a href="about.html" class="bio-cta secondary">About me</a>
+            </div>
         </div>
     </section>
 

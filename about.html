@@ -3,113 +3,299 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio - About</title>
+    <title>Ali Owji - About</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'DM Sans', sans-serif; }
+
+        .about-page {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 60px 40px 80px;
+        }
+
+        /* Top: photo left, name/meta right */
+        .about-top {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 3rem;
+            align-items: start;
+            margin-bottom: 3.5rem;
+        }
+
+        .about-photo {
+            width: 100%;
+            height: 380px;
+            border-radius: 8px;
+            object-fit: cover;
+            object-position: center 15%;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+            display: block;
+        }
+
+        .about-name-block h1 {
+            font-family: 'Lora', serif;
+            font-size: 2.8rem;
+            color: #3e4a36;
+            font-weight: 400;
+            margin-bottom: 1rem;
+            line-height: 1.1;
+        }
+
+        .about-meta-list {
+            list-style: none;
+            margin-bottom: 1.6rem;
+        }
+
+        .about-meta-list li {
+            display: flex;
+            align-items: center;
+            gap: 0.55rem;
+            color: #666;
+            font-size: 0.92rem;
+            margin-bottom: 0.55rem;
+        }
+
+        .about-meta-list li i {
+            color: #6b8c5a;
+            width: 14px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .about-meta-list a {
+            color: #666;
+            text-decoration: none;
+        }
+
+        .about-meta-list a:hover { color: #3e4a36; }
+
+        .resume-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            background: transparent;
+            color: #6b8c5a;
+            padding: 0;
+            border-radius: 0;
+            font-size: 0.92rem;
+            font-weight: 500;
+            cursor: pointer;
+            border: none;
+            font-family: 'DM Sans', sans-serif;
+            text-decoration: none;
+            transition: color 0.2s, gap 0.2s;
+        }
+
+        .resume-btn:hover {
+            color: #3e4a36;
+            gap: 0.65rem;
+        }
+
+        /* Divider */
+        .section-divider {
+            border: none;
+            border-top: 1px solid #dce8d4;
+            margin: 3rem 0;
+        }
+
+        /* Bio + sidebar two-col */
+        .about-body-row {
+            display: grid;
+            grid-template-columns: 1fr 240px;
+            gap: 3.5rem;
+            align-items: start;
+        }
+
+        .about-body { color: #444; line-height: 1.9; }
+
+        .about-body p {
+            font-size: 1.05rem;
+            margin-bottom: 1.4rem;
+        }
+
+        .about-body p:last-of-type { margin-bottom: 0; }
+
+        /* Sidebar */
+        .about-sidebar { position: sticky; top: 90px; }
+
+        .sidebar-block { margin-bottom: 2rem; }
+
+        .sidebar-block h3 {
+            font-family: 'Lora', serif;
+            font-size: 0.95rem;
+            color: #3e4a36;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #dce8d4;
+        }
+
+        .edu-item { margin-bottom: 1rem; }
+        .edu-item:last-child { margin-bottom: 0; }
+
+        .edu-year {
+            font-size: 0.75rem;
+            color: #6b8c5a;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.15rem;
+        }
+
+        .edu-degree {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #3e4a36;
+            line-height: 1.3;
+        }
+
+        .edu-detail {
+            font-size: 0.82rem;
+            color: #888;
+            margin-top: 0.1rem;
+        }
+
+        /* Resume lightbox */
+        .resume-lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background: rgba(0,0,0,0.88);
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .resume-lightbox.active { display: flex; }
+
+        .resume-lightbox iframe {
+            width: min(900px, 95vw);
+            height: 88vh;
+            border: none;
+            border-radius: 6px;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.6);
+        }
+
+        .resume-lightbox-close {
+            position: fixed;
+            top: 18px;
+            right: 22px;
+            background: rgba(255,255,255,0.15);
+            border: none;
+            color: white;
+            font-size: 1.4rem;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s;
+            z-index: 10000;
+        }
+
+        .resume-lightbox-close:hover { background: rgba(255,255,255,0.3); }
+
+        .resume-download-link {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.85rem;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            transition: color 0.2s;
+        }
+
+        .resume-download-link:hover { color: white; }
+
+        @media (max-width: 768px) {
+            .about-top { grid-template-columns: 1fr; gap: 2rem; }
+            .about-photo { max-width: 280px; }
+            .about-body-row { grid-template-columns: 1fr; }
+            .about-sidebar { position: static; }
+            .about-page { padding: 40px 24px 60px; }
+        }
+    </style>
 </head>
 <body>
-    <!-- Navigation Bar -->
     <nav>
         <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="projects.html">Projects</a></li>
-            <li><a href="contact.html">Contact</a></li>
         </ul>
     </nav>
 
-    <!-- About Section -->
-    <section class="page-section" id="about">
-        <h2 class="section-title">About Me</h2>
-        <div class="about-content">
-            <!-- Profile Image -->
-            <div class="profile-image">
-                <img src="9CC417C5-0256-4662-B2B1-F72826AA1614_1_105_c.jpeg" alt="Ali Owji Profile Picture">
-            </div>
-            
-            <!-- About Text -->
-            <div class="about-text">
-                <h3>Hello! I'm Ali</h3>
-                <p>
-                    I'm a bioinformatician who likes to live at the intersection of wet lab work and data science. Basically, I get my hands dirty with cells and then crunch the numbers to figure out what's actually happening.
-                </p>
-                
-                <p>
-                    Right now, I'm working as a Project Manager at Epic Systems, where I help hospitals get their cardiology systems running smoothly. It's a bit of a jump from pipetting in a lab, but honestly? The problem-solving is pretty similar.
-                </p>
-                
-                <p>
-                    My journey's been all over the place (in a good way). I studied bioinformatics at Georgetown and received my master's in 2024. That summer, I interned at the NIH studying vascular stiffness through speckle plethysmography. Before that, I went to the University of Florida from 2019-2023 to study Microbiology with a minor in Bioinformatics, where I worked on the C. elegans protein aggregation project. I've done everything from analyzing Arctic sea surface heights using satellite data to segmenting heartbeat waveforms. I spent a summer in Montana studying bacteria, worked in a clinical lab during COVID, and have been lucky enough to publish a couple papers along the way.
-                </p>
-                
-                <p>
-                    What really gets me excited is taking complex biological data and actually making sense of it, whether that's through machine learning, signal processing, or good experimental design. I'm also passionate about environmental science, which is why I dove into that Arctic oceanography project using deep learning and satellite altimetry.
-                </p>
-                
-                <p>
-                    Outside work? I'm probably tutoring high school students, exploring DC's food scene, or trying to explain to my friends why bioinformatics is actually really cool.
-                </p>
-                
-                <p>
-                    Feel free to reach out if you want to chat about data science, cell therapy, or why C. elegans are underrated model organisms.
-                </p>
+    <div class="about-page">
 
-                <h3>Skills</h3>
-                <div class="skills-grid">
-                    <div class="skill-category">
-                        <h4>Programming & Data Analysis</h4>
-                        <ul>
-                            <li>Python</li>
-                            <li>R Programming</li>
-                            <li>HTML/CSS</li>
-                            <li>STATA</li>
-                        </ul>
-                    </div>
-                    <div class="skill-category">
-                        <h4>Project Management & Healthcare IT</h4>
-                        <ul>
-                            <li>Epic Cupid Certification</li>
-                            <li>Epic Bridges Certification</li>
-                            <li>Epic Cogito Certification</li>
-                            <li>EHR Implementation</li>
-                            <li>Clinical Workflow Optimization</li>
-                            <li>HL7 Integration</li>
-                        </ul>
-                    </div>
-                    <div class="skill-category">
-                        <h4>Tools & Technologies</h4>
-                        <ul>
-                            <li>Git</li>
-                            <li>VS Code</li>
-                            <li>Excel</li>
-                            <li>Jupyter</li>
-                        </ul>
-                    </div>
-                </div>
+        <!-- Top: large photo + name block -->
+        <div class="about-top">
+            <img src="9CC417C5-0256-4662-B2B1-F72826AA1614_1_105_c.jpeg" alt="Ali Owji" class="about-photo">
 
-                <h3>Education</h3>
-                <p>
-                    <strong>M.S. in Bioinformatics</strong> - Georgetown University<br>
-                    2024-2024 | Washington, DC | GPA: 4.0
-                </p>
-                <p>
-                    <strong>B.S. in Microbiology & Cell Science</strong> - University of Florida<br>
-                    2019-2023 | Gainesville, FL | GPA: 3.5<br>
-                    Minor in Bioinformatics
-                </p>
+            <div class="about-name-block">
+                <h1>Ali Owji</h1>
 
-                <h3>Interests</h3>
-                <p>
-                    When I'm not coding, you can find me on the tennis court or hiking trails. I'm also passionate about environmental science and love exploring DC's food scene.
-                </p>
+                <ul class="about-meta-list">
+                    <li><i class="fas fa-map-marker-alt"></i> Madison, Wisconsin</li>
+                    <li><i class="fas fa-briefcase"></i> Project Manager at Epic Systems</li>
+                </ul>
+
+                <a href="resume.html" class="resume-btn">
+                    View Resume
+                </a>
             </div>
         </div>
-    </section>
 
-    <!-- Footer -->
+        <hr class="section-divider">
+
+        <!-- Bio text + education sidebar -->
+        <div class="about-body-row">
+            <div class="about-body">
+                <p>
+                    I've always been drawn to the question underneath the question. What started as a fascination with cells and genetics turned into a career chasing biological problems that are genuinely hard, the kind that sit at the edge of what we understand and require you to pick up new tools just to make progress.
+                </p>
+                <p>
+                    I studied microbiology at UF, then did a master's in bioinformatics at Georgetown. Along the way I published research on <em>C. elegans</em> protein aggregation and its links to neurodegeneration, spent a summer at the NIH building signal processing pipelines for cardiovascular wearables, and developed machine learning models to analyze Arctic sea surface height data from satellite altimetry. Each project was a different domain, but the same underlying pull: find the pattern, understand the system, push toward something useful.
+                </p>
+                <p>
+                    Right now I'm a Project Manager at Epic Systems in Madison, helping health systems implement cardiology software. It's sharpened how I think about complex systems and the humans who use them. But where I want to go is deeper into biotech, closer to the science, working on problems where biology and technology are still figuring out what's possible together.
+                </p>
+                <p>
+                    Outside work I'm usually hiking, cooking something new, reading, or learning whatever technology has caught my attention that week. I also play tennis, and I tutor high school students, which has a way of keeping you honest about what you actually understand versus what you just think you do.
+                </p>
+            </div>
+
+            <aside class="about-sidebar">
+                <div class="sidebar-block">
+                    <h3>Education</h3>
+                    <div class="edu-item">
+                        <div class="edu-year">2024</div>
+                        <div class="edu-degree">M.S. Bioinformatics</div>
+                        <div class="edu-detail">Georgetown University &nbsp;·&nbsp; GPA 4.0</div>
+                    </div>
+                    <div class="edu-item">
+                        <div class="edu-year">2019 &ndash; 2023</div>
+                        <div class="edu-degree">B.S. Microbiology &amp; Cell Science</div>
+                        <div class="edu-detail">University of Florida &nbsp;·&nbsp; GPA 3.5</div>
+                        <div class="edu-detail">Minor in Bioinformatics</div>
+                    </div>
+                </div>
+            </aside>
+        </div>
+
+    </div>
+
     <footer>
         <p>
-            <a href="about.html">About</a> | 
-            <a href="projects.html">Projects</a> | 
+            <a href="about.html">About</a> |
+            <a href="projects.html">Projects</a> |
             <a href="mailto:aowji101@gmail.com">Contact</a>
         </p>
     </footer>

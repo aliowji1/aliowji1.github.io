@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vascular Stiffness Estimation - Ali Owji</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="projects.html">Projects</a></li>
+        </ul>
+    </nav>
+
+    <section class="project-detail">
+        <div class="project-header">
+            <a href="projects.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Projects</a>
+            <h1>Estimating Vascular Stiffness through Speckle Plethysmography</h1>
+        </div>
+
+        <div class="project-content-wrapper">
+            <div class="project-main-content">
+
+                <section class="content-section">
+                    <h2>Overview</h2>
+                    <p>This project explores non-invasive methods for assessing cardiovascular health through wearable technology. Using speckle plethysmography waveforms from patients in the NIH Natural History Study of CADASIL, I developed analytical methods to estimate vascular stiffness without requiring specialized medical equipment.</p>
+                </section>
+
+                <section class="content-section">
+                    <h2>The Problem</h2>
+                    <p>The project addresses a critical need in cardiovascular monitoring: traditional pulse wave velocity measurements are invasive and require clinical settings, limiting their use for continuous health tracking and early disease detection. There is a growing need for accessible, wearable solutions that can provide continuous cardiovascular monitoring.</p>
+                </section>
+
+                <section class="content-section">
+                    <h2>My Approach</h2>
+                    <p>I implemented a comprehensive signal processing pipeline including:</p>
+                    <ul>
+                        <li><strong>Automated Heartbeat Segmentation:</strong> Developed algorithm to identify and extract individual heartbeats from continuous waveforms</li>
+                        <li><strong>Feature Engineering:</strong> Extracted 95 distinct features from SPG waveforms and their derivatives</li>
+                        <li><strong>Statistical Analysis:</strong> Applied linear regression to identify strongest predictors of pulse wave velocity</li>
+                        <li><strong>Physiological Validation:</strong> Confirmed findings across both healthy individuals and CADASIL patients</li>
+                    </ul>
+                </section>
+
+                <section class="content-section">
+                    <h2>Key Findings</h2>
+                    <p>Through linear regression analysis, I identified the diastolic-to-systolic amplitude ratio as the strongest predictor of pulse wave velocity (r = -0.673, R² = 0.453). The findings reveal that healthier, more elastic arteries show higher diastolic-to-systolic ratios, while stiffer arteries demonstrate lower ratios.</p>
+                    <p>This relationship holds across both healthy individuals and CADASIL patients, demonstrating how wearable SPG devices could provide accessible cardiovascular monitoring and early detection of vascular dysfunction in at-risk populations.</p>
+                </section>
+
+                <section class="content-section">
+                    <h2>Technical Details</h2>
+                    <p>Features extracted included:</p>
+                    <ul>
+                        <li>Time spans between cardiac landmarks</li>
+                        <li>Slope measurements at critical points</li>
+                        <li>Area under curve calculations</li>
+                        <li>Amplitude ratios between systolic and diastolic peaks</li>
+                        <li>First and second derivative features</li>
+                    </ul>
+                </section>
+
+                <section class="content-section">
+                    <h2>Technical Stack</h2>
+                    <div class="tech-grid">
+                        <div class="tech-item">Python</div>
+                        <div class="tech-item">pandas</div>
+                        <div class="tech-item">scipy</div>
+                        <div class="tech-item">seaborn</div>
+                        <div class="tech-item">plotly</div>
+                        <div class="tech-item">numpy</div>
+                        <div class="tech-item">Jupyter</div>
+                        <div class="tech-item">Signal Processing</div>
+                    </div>
+                </section>
+
+                <section class="content-section">
+                    <h2>Research Poster</h2>
+                    <p>Click the poster to view it fullscreen.</p>
+                    <div class="poster-container">
+                        <img
+                            src="2024_Ali_SPG_Poster.jpg"
+                            alt="SPG Research Poster"
+                            class="poster-thumbnail"
+                            onclick="openLightbox(this.src)"
+                        />
+                    </div>
+                </section>
+
+                <div class="project-links-section">
+                    <a href="https://github.com/aliowji1/signal_processing" class="btn-primary" target="_blank">
+                        <i class="fab fa-github"></i> View on GitHub
+                    </a>
+                </div>
+            </div>
+
+            <aside class="project-sidebar">
+                <div class="sidebar-section">
+                    <h3>Project Info</h3>
+                    <div class="info-item">
+                        <strong>Timeline:</strong>
+                        <p>June 2024 - August 2024</p>
+                    </div>
+                    <div class="info-item">
+                        <strong>Role:</strong>
+                        <p>Data Science Fellow</p>
+                    </div>
+                    <div class="info-item">
+                        <strong>Institution:</strong>
+                        <p>National Institutes of Health</p>
+                    </div>
+                    <div class="info-item">
+                        <strong>Lab:</strong>
+                        <p>Section of Biomedical Optics, Dr. Bruce Tromberg</p>
+                    </div>
+                </div>
+
+                <div class="sidebar-section">
+                    <h3>Navigate Projects</h3>
+                    <a href="arctic-project.html" class="nav-project-link">
+                        <i class="fas fa-arrow-left"></i> Previous: Arctic SSHA Analysis
+                    </a>
+                    <a href="celegans-project.html" class="nav-project-link">
+                        Next: C. elegans Research <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </aside>
+        </div>
+    </section>
+
+    <!-- Lightbox Overlay -->
+    <div id="poster-lightbox" class="lightbox" onclick="closeLightbox()">
+        <button class="lightbox-close" onclick="closeLightbox()">
+            <i class="fas fa-times"></i>
+        </button>
+        <img id="lightbox-img" src="" alt="SPG Research Poster" onclick="event.stopPropagation()" />
+    </div>
+
+    <footer>
+        <p>
+            <a href="about.html">About</a> | 
+            <a href="projects.html">Projects</a> | 
+            <a href="mailto:aowji101@gmail.com">Contact</a>
+        </p>
+    </footer>
+
+    <script>
+        function openLightbox(src) {
+            document.getElementById('lightbox-img').src = src;
+            document.getElementById('poster-lightbox').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeLightbox() {
+            document.getElementById('poster-lightbox').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeLightbox();
+        });
+    </script>
+</body>
+</html>

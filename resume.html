@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ali Owji - Resume</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: #f5f7f3;
+            color: #333;
+            min-height: 100vh;
+        }
+
+        /* Top bar */
+        .resume-topbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(245, 247, 243, 0.92);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid #dce8d4;
+            padding: 0.75rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .back-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #6b8c5a;
+            text-decoration: none;
+            font-size: 0.88rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .back-link:hover { color: #3e4a36; }
+
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: transparent;
+            color: #3e4a36;
+            border: 2px solid #3e4a36;
+            padding: 0.45rem 1.1rem;
+            border-radius: 6px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s;
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        .download-btn:hover {
+            background: #3e4a36;
+            color: white;
+        }
+
+        /* Resume body */
+        .resume-wrap {
+            max-width: 820px;
+            margin: 0 auto;
+            padding: 56px 48px 80px;
+        }
+
+        /* Header */
+        .resume-header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .resume-header h1 {
+            font-family: 'Lora', serif;
+            font-size: 2.8rem;
+            font-weight: 400;
+            color: #3e4a36;
+            margin-bottom: 0.6rem;
+        }
+
+        .resume-contact-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.4rem;
+            flex-wrap: wrap;
+        }
+
+        .resume-contact-row a,
+        .resume-contact-row span {
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+            color: #555;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+
+        .resume-contact-row a:hover { color: #3e4a36; }
+
+        .resume-contact-row a i { font-size: 1.4rem; } .resume-contact-row i {
+            color: #6b8c5a;
+            font-size: 0.95rem;
+        }
+
+        /* Section */
+        .resume-section {
+            margin-bottom: 2.2rem;
+        }
+
+        .resume-section h2 {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: #3e4a36;
+            margin-bottom: 0.6rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #6b8c5a;
+        }
+
+        /* Education */
+        .edu-entry {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+            gap: 0.2rem;
+        }
+
+        .edu-left strong {
+            display: block;
+            font-size: 0.97rem;
+            font-weight: 600;
+            color: #222;
+        }
+
+        .edu-left span {
+            font-size: 0.88rem;
+            color: #666;
+        }
+
+        .edu-right {
+            font-size: 0.85rem;
+            color: #888;
+            white-space: nowrap;
+        }
+
+        /* Experience */
+        .exp-entry {
+            margin-top: 1.2rem;
+        }
+
+        .exp-header {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 0.3rem;
+            margin-bottom: 0.15rem;
+        }
+
+        .exp-title {
+            font-size: 0.97rem;
+            font-weight: 600;
+            color: #222;
+        }
+
+        .exp-role-tag {
+            display: inline-block;
+            background: #dce8d4;
+            color: #3e4a36;
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 0.15rem 0.65rem;
+            border-radius: 4px;
+            border: 1px solid #c5d9b5;
+            margin-left: 0.5rem;
+        }
+
+        .exp-date {
+            font-size: 0.85rem;
+            color: #888;
+            white-space: nowrap;
+        }
+
+        .exp-org {
+            font-size: 0.88rem;
+            color: #666;
+            margin-bottom: 0.5rem;
+        }
+
+        .exp-bullets {
+            padding-left: 1.1rem;
+            list-style: disc;
+        }
+
+        .exp-bullets li {
+            font-size: 0.9rem;
+            color: #444;
+            line-height: 1.65;
+            margin-bottom: 0.2rem;
+        }
+
+        /* Skills pills */
+        .skills-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.45rem;
+            margin-top: 0.8rem;
+        }
+
+        .skill-pill {
+            background: #dce8d4;
+            color: #3e4a36;
+            border: 1px solid #c5d9b5;
+            border-radius: 100px;
+            padding: 0.25rem 0.8rem;
+            font-size: 0.83rem;
+            font-weight: 500;
+        }
+
+        .skills-group {
+            margin-top: 0.9rem;
+        }
+
+        .skills-group-label {
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #999;
+            margin-bottom: 0.4rem;
+        }
+
+        /* Publications */
+        .pub-entry {
+            margin-top: 1rem;
+        }
+
+        .pub-entry p {
+            font-size: 0.9rem;
+            color: #444;
+            line-height: 1.6;
+        }
+
+        .pub-entry a {
+            color: #6b8c5a;
+            text-decoration: none;
+        }
+
+        .pub-entry a:hover { text-decoration: underline; }
+
+        @media (max-width: 600px) {
+            .resume-wrap { padding: 32px 24px 60px; }
+            .resume-header h1 { font-size: 2rem; }
+            .resume-topbar { padding: 0.75rem 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="resume-topbar">
+        <a href="about.html" class="back-link">
+            <i class="fas fa-arrow-left"></i> Back to About
+        </a>
+        <a href="Ali_Owji_Resume.pdf" download class="download-btn">
+            <i class="fas fa-download"></i> Download PDF
+        </a>
+    </div>
+
+    <div class="resume-wrap">
+
+        <!-- Header -->
+        <div class="resume-header">
+            <h1>Ali Owji</h1>
+            <div class="resume-contact-row">
+                <a href="mailto:aowji101@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                <a href="https://www.linkedin.com/in/ali-owji-41161923a/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/aliowji1" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <span><i class="fas fa-map-marker-alt"></i> Madison, WI</span>
+            </div>
+        </div>
+
+        <!-- Education -->
+        <div class="resume-section">
+            <h2>Education</h2>
+
+            <div class="edu-entry">
+                <div class="edu-left">
+                    <strong>Georgetown University</strong>
+                    <span>M.S. in Bioinformatics &nbsp;·&nbsp; GPA 4.0</span>
+                </div>
+                <div class="edu-right">2024</div>
+            </div>
+
+            <div class="edu-entry">
+                <div class="edu-left">
+                    <strong>University of Florida</strong>
+                    <span>B.S. in Microbiology &amp; Cell Science &nbsp;·&nbsp; Minor in Bioinformatics &nbsp;·&nbsp; GPA 3.5</span>
+                </div>
+                <div class="edu-right">2019 &ndash; 2023</div>
+            </div>
+        </div>
+
+        <!-- Experience -->
+        <div class="resume-section">
+            <h2>Experience</h2>
+
+            <div class="exp-entry">
+                <div class="exp-header">
+                    <div>
+                        <span class="exp-title">Epic Systems</span>
+                        <span class="exp-role-tag">Project Manager</span>
+                    </div>
+                    <span class="exp-date">2024 &ndash; Present</span>
+                </div>
+                <div class="exp-org">Madison, WI</div>
+                <ul class="exp-bullets">
+                    <li>Lead implementation of Epic Cupid cardiology module across health system clients</li>
+                    <li>Coordinate cross-functional teams to optimize clinical workflows and EHR integration</li>
+                    <li>Manage HL7 interface builds and Bridges/Cogito configuration for data interoperability</li>
+                </ul>
+            </div>
+
+            <div class="exp-entry">
+                <div class="exp-header">
+                    <div>
+                        <span class="exp-title">National Institutes of Health</span>
+                        <span class="exp-role-tag">Data Science Fellow</span>
+                    </div>
+                    <span class="exp-date">June &ndash; Aug 2024</span>
+                </div>
+                <div class="exp-org">Section of Biomedical Optics, Dr. Bruce Tromberg &nbsp;·&nbsp; Bethesda, MD</div>
+                <ul class="exp-bullets">
+                    <li>Developed automated heartbeat segmentation algorithm for speckle plethysmography waveforms</li>
+                    <li>Engineered 95 signal features; identified diastolic-to-systolic ratio as strongest predictor of vascular stiffness (r = -0.673)</li>
+                    <li>Validated non-invasive PWV estimation pipeline across healthy subjects and CADASIL patients</li>
+                </ul>
+            </div>
+
+            <div class="exp-entry">
+                <div class="exp-header">
+                    <div>
+                        <span class="exp-title">University of Florida &ndash; Czyż Lab</span>
+                        <span class="exp-role-tag">Research Assistant</span>
+                    </div>
+                    <span class="exp-date">Sep 2021 &ndash; Jun 2022</span>
+                </div>
+                <div class="exp-org">Department of Microbiology &amp; Cell Science &nbsp;·&nbsp; Gainesville, FL</div>
+                <ul class="exp-bullets">
+                    <li>Designed and validated the Time-Off-Pick (TOP) assay for measuring C. elegans motility impairment</li>
+                    <li>Quantified protein aggregates in P. aeruginosa using ProteoStat fluorescence assay</li>
+                    <li>Co-authored two peer-reviewed publications on bacterial proteostasis and neurodegenerative disease</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Projects -->
+        <div class="resume-section">
+            <h2>Projects</h2>
+
+            <div class="exp-entry">
+                <div class="exp-header">
+                    <span class="exp-title">Arctic Sea Surface Height Prediction</span>
+                    <span class="exp-date">Sep &ndash; Dec 2024</span>
+                </div>
+                <div class="exp-org">Georgetown University</div>
+                <ul class="exp-bullets">
+                    <li>Built ML framework (U-Net CNN, LSTM autoencoder, Random Forest) on 70 months of ICESat-2 satellite data</li>
+                    <li>Achieved 16 cm spatial prediction accuracy across 448x304 Arctic grid; identified 5 distinct temporal SSHA patterns</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Skills -->
+        <div class="resume-section">
+            <h2>Skills</h2>
+
+            <div class="skills-group">
+                <div class="skills-group-label">Programming &amp; Analysis</div>
+                <div class="skills-row">
+                    <span class="skill-pill">Python</span>
+                    <span class="skill-pill">R</span>
+                    <span class="skill-pill">pandas</span>
+                    <span class="skill-pill">scipy</span>
+                    <span class="skill-pill">TensorFlow</span>
+                    <span class="skill-pill">scikit-learn</span>
+                    <span class="skill-pill">Signal Processing</span>
+                    <span class="skill-pill">STATA</span>
+                    <span class="skill-pill">SQL</span>
+                </div>
+            </div>
+
+            <div class="skills-group">
+                <div class="skills-group-label">Healthcare IT</div>
+                <div class="skills-row">
+                    <span class="skill-pill">Epic Cupid</span>
+                    <span class="skill-pill">Epic Bridges</span>
+                    <span class="skill-pill">Epic Cogito</span>
+                    <span class="skill-pill">HL7 / FHIR</span>
+                    <span class="skill-pill">EHR Implementation</span>
+                </div>
+            </div>
+
+            <div class="skills-group">
+                <div class="skills-group-label">Tools</div>
+                <div class="skills-row">
+                    <span class="skill-pill">Git</span>
+                    <span class="skill-pill">Jupyter</span>
+                    <span class="skill-pill">VS Code</span>
+                    <span class="skill-pill">HTML/CSS</span>
+                    <span class="skill-pill">ImageJ</span>
+                    <span class="skill-pill">GraphPad Prism</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Publications -->
+        <div class="resume-section">
+            <h2>Publications</h2>
+
+            <div class="pub-entry">
+                <p>Owji A, et al. <strong>Time-off-pick Assay to Measure Caenorhabditis elegans Motility.</strong> <em>Bio-protocol</em>, 2022. <a href="https://doi.org/10.21769/BioProtoc.4436" target="_blank">doi:10.21769/BioProtoc.4436</a></p>
+            </div>
+
+            <div class="pub-entry">
+                <p>Czyż Lab. <strong>Bacteria-Derived Protein Aggregates Contribute to the Disruption of Host Proteostasis.</strong> <em>Int. J. Mol. Sci.</em>, 2022. <a href="https://doi.org/10.3390/ijms23094807" target="_blank">doi:10.3390/ijms23094807</a></p>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

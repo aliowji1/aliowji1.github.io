@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arctic Sea Surface Height Prediction - Ali Owji</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="projects.html">Projects</a></li>
+        </ul>
+    </nav>
+
+    <section class="project-detail">
+        <div class="project-header">
+            <a href="projects.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Projects</a>
+            <h1>Arctic Sea Surface Height Prediction Using Deep Learning</h1>
+        </div>
+
+        <div class="project-content-wrapper">
+            <div class="project-main-content">
+
+                <section class="content-section">
+                    <h2>Overview</h2>
+                    <p>This project tackles the challenge of understanding and predicting Arctic Ocean dynamics in the face of rapid climate change. Using over 70 months of ICESat-2 satellite altimetry data, I developed a comprehensive machine learning framework to analyze Sea Surface Height Anomalies (SSHA) across the Arctic region.</p>
+                </section>
+
+                <section class="content-section">
+                    <h2>The Challenge</h2>
+                    <p>The project addresses a critical gap in Arctic oceanography: traditional physical models struggle to capture the complexity of polar ocean dynamics, particularly in regions with seasonal ice cover and rapidly changing environmental conditions. Understanding these dynamics is essential for climate change prediction and Arctic navigation.</p>
+                </section>
+
+                <section class="content-section">
+                    <h2>Technical Approach</h2>
+                    <p>I implemented multiple complementary machine learning approaches:</p>
+                    <ul>
+                        <li><strong>K-means Clustering:</strong> Pattern identification across spatial and temporal dimensions</li>
+                        <li><strong>Random Forest:</strong> Feature importance analysis to identify key oceanographic drivers</li>
+                        <li><strong>U-Net CNN Architecture:</strong> Spatial prediction achieving 16cm accuracy across 448×304 grid</li>
+                        <li><strong>LSTM Autoencoder:</strong> Temporal pattern analysis identifying distinct modes of variability</li>
+                    </ul>
+                </section>
+
+                <section class="content-section">
+                    <h2>Key Findings</h2>
+                    <p>I was responsible for the entire pipeline, from data acquisition and preprocessing through model development, training, and evaluation. This work ultimately uncovered counterintuitive relationships between sea ice extent and surface height that challenge conventional freeze-melt cycle explanations.</p>
+                    <p>The findings reveal five distinct temporal patterns in Arctic SSHA dynamics and demonstrate how machine learning can provide new insights into climate change impacts in polar regions.</p>
+                </section>
+
+                <section class="content-section">
+                    <h2>Technical Stack</h2>
+                    <div class="tech-grid">
+                        <div class="tech-item">Python</div>
+                        <div class="tech-item">TensorFlow</div>
+                        <div class="tech-item">scikit-learn</div>
+                        <div class="tech-item">h5py</div>
+                        <div class="tech-item">U-Net CNN</div>
+                        <div class="tech-item">LSTM</div>
+                        <div class="tech-item">K-means</div>
+                        <div class="tech-item">Random Forest</div>
+                    </div>
+                </section>
+
+                <section class="content-section">
+                    <h2>Research Poster</h2>
+                    <p>Click the poster to view it fullscreen.</p>
+                    <div class="poster-container">
+                        <img
+                            src="SSHA_Poster.ali_owji.jpg"
+                            alt="Arctic SSHA Research Poster"
+                            class="poster-thumbnail"
+                            onclick="openLightbox(this.src)"
+                        />
+                    </div>
+                </section>
+
+                <div class="project-links-section">
+                    <a href="https://github.com/aliowji1/arctic-ssha-analysis" class="btn-primary" target="_blank">
+                        <i class="fab fa-github"></i> View on GitHub
+                    </a>
+                </div>
+            </div>
+
+            <aside class="project-sidebar">
+                <div class="sidebar-section">
+                    <h3>Project Info</h3>
+                    <div class="info-item">
+                        <strong>Timeline:</strong>
+                        <p>September 2024 - December 2024</p>
+                    </div>
+                    <div class="info-item">
+                        <strong>Role:</strong>
+                        <p>Lead Researcher & Developer</p>
+                    </div>
+                    <div class="info-item">
+                        <strong>Institution:</strong>
+                        <p>Georgetown University</p>
+                    </div>
+                </div>
+
+                <div class="sidebar-section">
+                    <h3>Navigate Projects</h3>
+                    <a href="spg-project.html" class="nav-project-link">
+                        Next: SPG Vascular Stiffness <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </aside>
+        </div>
+    </section>
+
+    <!-- Lightbox Overlay -->
+    <div id="poster-lightbox" class="lightbox" onclick="closeLightbox()">
+        <button class="lightbox-close" onclick="closeLightbox()">
+            <i class="fas fa-times"></i>
+        </button>
+        <img id="lightbox-img" src="" alt="Arctic SSHA Poster Fullscreen" onclick="event.stopPropagation()" />
+    </div>
+
+    <footer>
+        <p>
+            <a href="about.html">About</a> | 
+            <a href="projects.html">Projects</a> | 
+            <a href="mailto:aowji101@gmail.com">Contact</a>
+        </p>
+    </footer>
+
+    <script>
+        function openLightbox(src) {
+            document.getElementById('lightbox-img').src = src;
+            document.getElementById('poster-lightbox').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeLightbox() {
+            document.getElementById('poster-lightbox').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeLightbox();
+        });
+    </script>
+</body>
+</html>
