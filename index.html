@@ -11,6 +11,9 @@
         /* Home page overrides */
         body.full-page-bg {
             font-family: 'DM Sans', sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
         .hero-section {
@@ -50,11 +53,11 @@
 
         /* Bio section — replaces exploration section */
         .bio-section {
-            min-height: 0;
+            flex: 1;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 20px 24px 60px;
+            padding: 20px 24px;
         }
 
         .bio-card {
